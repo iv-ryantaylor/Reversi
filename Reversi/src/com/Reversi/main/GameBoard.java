@@ -124,6 +124,23 @@ public class GameBoard {
 		return noValidMoves;
 	}
 	
+	//Calculates and prints out score for selected player
+	public void checkScore(int player)
+	{
+		int score = 0;
+		for(int x = 0; x<=7;x++)
+		{
+			for(int y=0;y<=7;y++)
+			{
+				if(getCell(x,y) == player)
+				{
+					score++;
+				}
+			}
+		}
+		System.out.println("Player "+player+"'s Score: " +score);
+	}
+	
 	//--------------------------------Private methods-------------------------------------------
 	
 	//Makes the selected move for the player. Checks for other tiles to be flipped and flips them.

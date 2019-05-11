@@ -24,12 +24,14 @@ public class GameState {
 				playTurn();
 			}
 			board.printBoard();
+			printScores();
 			System.out.println("Game Over!");
 		}
 		
 		public void playTurn()
 		{
 			board.printBoard();
+			printScores();
 			if(player1Turn)
 			{
 				for(int x = 0; x <= 7; x++)
@@ -107,4 +109,13 @@ public class GameState {
 			player1Turn = !player1Turn;
 			player2Turn = !player2Turn;
 		}
+		
+		public void printScores()
+		{
+			board.checkScore(1);
+			board.checkScore(2);
+			System.out.println("");
+		}
+		
+		
 }
