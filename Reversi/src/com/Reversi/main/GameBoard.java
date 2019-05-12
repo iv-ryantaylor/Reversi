@@ -160,277 +160,59 @@ public class GameBoard {
 	//Checks the upward direction and flips required tiles.
 	private void processUp(Cell move, int player)
 	{
-		Cell foundCell = null;
-		boolean cellFound = false;
-		boolean noPath = false;
-		int tempX = move.getX()-1;
-		int tempY = move.getY();
-		while(!cellFound && !noPath && tempX >= 0)
-		{
-			if(board[tempX][tempY] == 0)
-			{
-				noPath = true;
-			}
-			else if(board[tempX][tempY] == player)
-			{
-				foundCell = new Cell(tempX,tempY);
-				cellFound = true;
-			}
-			else
-			{
-				tempX--;
-			}
-		}
-		tempX = move.getX()-1;
-		tempY = move.getY();
-		if(foundCell != null)
-		{
-			while(tempX != foundCell.getX())
-			{
-				Cell temp = new Cell(tempX,tempY);
-				changeCell(temp,player);
-				tempX--;
-			}
-		}
+		processDirection(move,player,-1,0);
 	}
 	
 	//Checks the downward direction and flips required tiles.
 	private void processDown(Cell move, int player)
 	{
-		Cell foundCell = null;
-		boolean cellFound = false;
-		boolean noPath = false;
-		int tempX = move.getX()+1;
-		int tempY = move.getY();
-		while(!cellFound && !noPath && tempX <= 7)
-		{
-			if(board[tempX][tempY] == 0)
-			{
-				noPath = true;
-			}
-			else if(board[tempX][tempY] == player)
-			{
-				foundCell = new Cell(tempX,tempY);
-				cellFound = true;
-			}
-			else
-			{
-				tempX++;
-			}
-		}
-		tempX = move.getX()+1;
-		tempY = move.getY();
-		if(foundCell != null)
-		{
-			while(tempX != foundCell.getX())
-			{
-				Cell temp = new Cell(tempX,tempY);
-				changeCell(temp,player);
-				tempX++;
-			}
-		}
+		processDirection(move,player,1,0);
 	}
 	
 	//Checks the leftward direction and flips required tiles.
 	private void processLeft(Cell move, int player)
 	{
-		Cell foundCell = null;
-		boolean cellFound = false;
-		boolean noPath = false;
-		int tempX = move.getX();
-		int tempY = move.getY()-1;
-		while(!cellFound && !noPath && tempY >= 0)
-		{
-			if(board[tempX][tempY] == 0)
-			{
-				noPath = true;
-			}
-			else if(board[tempX][tempY] == player)
-			{
-				foundCell = new Cell(tempX,tempY);
-				cellFound = true;
-			}
-			else
-			{
-				tempY--;
-			}
-		}
-		tempX = move.getX();
-		tempY = move.getY()-1;
-		if(foundCell != null)
-		{
-			while(tempY != foundCell.getY())
-			{
-				Cell temp = new Cell(tempX,tempY);
-				changeCell(temp,player);
-				tempY--;
-			}
-		}
+		processDirection(move,player,0,-1);
 	}
 	
 	//Checks the rightward direction and flips required tiles.
 	private void processRight(Cell move, int player)
 	{
-		Cell foundCell = null;
-		boolean cellFound = false;
-		boolean noPath = false;
-		int tempX = move.getX();
-		int tempY = move.getY()+1;
-		while(!cellFound && !noPath && tempY <= 7)
-		{
-			if(board[tempX][tempY] == 0)
-			{
-				noPath = true;
-			}
-			else if(board[tempX][tempY] == player)
-			{
-				foundCell = new Cell(tempX,tempY);
-				cellFound = true;
-			}
-			else
-			{
-				tempY++;
-			}
-		}
-		tempX = move.getX();
-		tempY = move.getY()+1;
-		if(foundCell != null)
-		{
-			while(tempY != foundCell.getY())
-			{
-				Cell temp = new Cell(tempX,tempY);
-				changeCell(temp,player);
-				tempY++;
-			}
-		}
+		processDirection(move,player,0,1);
 	}
 	
 	//Checks the lowerleft direction and flips required tiles.
 	private void processLowerLeft(Cell move, int player)
 	{
-		Cell foundCell = null;
-		boolean cellFound = false;
-		boolean noPath = false;
-		int tempX = move.getX()+1;
-		int tempY = move.getY()-1;
-		while(!cellFound && !noPath && tempY >= 0 && tempX <= 7)
-		{
-			if(board[tempX][tempY] == 0)
-			{
-				noPath = true;
-			}
-			else if(board[tempX][tempY] == player)
-			{
-				foundCell = new Cell(tempX,tempY);
-				cellFound = true;
-			}
-			else
-			{
-				tempX++;
-				tempY--;
-			}
-		}
-		tempX = move.getX()+1;
-		tempY = move.getY()-1;
-		if(foundCell != null)
-		{
-			while(tempY != foundCell.getY())
-			{
-				Cell temp = new Cell(tempX,tempY);
-				changeCell(temp,player);
-				tempX++;
-				tempY--;
-			}
-		}
+		processDirection(move,player,1,-1);
 	}
 	
 	//Checks the upperleft direction and flips required tiles.
 	private void processUpperLeft(Cell move, int player)
 	{
-		Cell foundCell = null;
-		boolean cellFound = false;
-		boolean noPath = false;
-		int tempX = move.getX()-1;
-		int tempY = move.getY()-1;
-		while(!cellFound && !noPath && tempY >= 0 && tempX >= 0)
-		{
-			if(board[tempX][tempY] == 0)
-			{
-				noPath = true;
-			}
-			else if(board[tempX][tempY] == player)
-			{
-				foundCell = new Cell(tempX,tempY);
-				cellFound = true;
-			}
-			else
-			{
-				tempX--;
-				tempY--;
-			}
-		}
-		tempX = move.getX()-1;
-		tempY = move.getY()-1;
-		if(foundCell != null)
-		{
-			while(tempY != foundCell.getY())
-			{
-				Cell temp = new Cell(tempX,tempY);
-				changeCell(temp,player);
-				tempX--;
-				tempY--;
-			}
-		}
+		processDirection(move,player,-1,-1);
 	}
 	
 	//Checks the lowerright direction and flips required tiles.
 	private void processLowerRight(Cell move, int player)
 	{
-		Cell foundCell = null;
-		boolean cellFound = false;
-		boolean noPath = false;
-		int tempX = move.getX()+1;
-		int tempY = move.getY()+1;
-		while(!cellFound && !noPath && tempY <= 7 && tempX <= 7)
-		{
-			if(board[tempX][tempY] == 0)
-			{
-				noPath = true;
-			}
-			else if(board[tempX][tempY] == player)
-			{
-				foundCell = new Cell(tempX,tempY);
-				cellFound = true;
-			}
-			else
-			{
-				tempX++;
-				tempY++;
-			}
-		}
-		tempX = move.getX()+1;
-		tempY = move.getY()+1;
-		if(foundCell != null)
-		{
-			while(tempY != foundCell.getY())
-			{
-				Cell temp = new Cell(tempX,tempY);
-				changeCell(temp,player);
-				tempX++;
-				tempY++;
-			}
-		}
+		processDirection(move,player,1,1);
 	}
 	
 	//Checks the upperright direction and flips required tiles.
 	private void processUpperRight(Cell move, int player)
 	{
+		processDirection(move, player, -1, 1);
+	}
+	
+	private void processDirection(Cell move, int player, int x_change, int y_change)
+	{
 		Cell foundCell = null;
 		boolean cellFound = false;
 		boolean noPath = false;
-		int tempX = move.getX()-1;
-		int tempY = move.getY()+1;
-		while(!cellFound && !noPath && tempY <= 7 && tempX >= 0)
+		int tempX = move.getX()+x_change;
+		int tempY = move.getY()+y_change;
+		while(!cellFound && !noPath && (tempY <= 7 && tempY >=0) && (tempX >= 0 && tempX <= 7))
 		{
 			if(board[tempX][tempY] == 0)
 			{
@@ -443,20 +225,20 @@ public class GameBoard {
 			}
 			else
 			{
-				tempX--;
-				tempY++;
+				tempX = tempX + x_change;
+				tempY = tempY + y_change;
 			}
 		}
-		tempX = move.getX()-1;
-		tempY = move.getY()+1;
+		tempX = move.getX()+x_change;
+		tempY = move.getY()+y_change;
 		if(foundCell != null)
 		{
-			while(tempY != foundCell.getY())
+			while(tempY != foundCell.getY() && tempX != foundCell.getX())
 			{
 				Cell temp = new Cell(tempX,tempY);
 				changeCell(temp,player);
-				tempX--;
-				tempY++;
+				tempX = tempX + x_change;
+				tempY = tempY + y_change;
 			}
 		}
 	}

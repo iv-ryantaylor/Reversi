@@ -17,6 +17,7 @@ public class GameState {
 			player2Turn = false;
 		}
 		
+		//Starts the game, putting into loop until game over condition has been acheived.
 		public void startGame() throws IOException
 		{
 			while(!board.gameOverCheck())
@@ -28,6 +29,7 @@ public class GameState {
 			System.out.println("Game Over!");
 		}
 		
+		//AI based playTurn
 		public void playTurn()
 		{
 			board.printBoard();
@@ -104,12 +106,14 @@ public class GameState {
 		}
 		*/
 		
+		//Swaps players turns by reversing boolean values
 		public void swapTurns()
 		{
 			player1Turn = !player1Turn;
 			player2Turn = !player2Turn;
 		}
 		
+		//Calls,for each player, the GameBoard checkscore() function that calculates and prints player score
 		public void printScores()
 		{
 			board.checkScore(1);
