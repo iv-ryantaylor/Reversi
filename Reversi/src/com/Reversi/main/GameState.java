@@ -3,7 +3,7 @@ package com.Reversi.main;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class GameState {
+public class GameState{
 
 		public boolean player1Turn;
 		public boolean player2Turn;
@@ -17,7 +17,7 @@ public class GameState {
 			player2Turn = false;
 		}
 		
-		//Starts the game, putting into loop until game over condition has been acheived.
+		//Starts the game, putting into loop until game over condition has been achieved.
 		public void startGame() throws IOException
 		{
 			while(!board.gameOverCheck())
